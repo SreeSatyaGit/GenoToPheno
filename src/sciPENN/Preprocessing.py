@@ -79,7 +79,7 @@ def preprocess(gene_trainsets, protein_trainsets, gene_test = None, train_batchk
             print("QC Filtering Testing Genes")
 
             bools = (gene_test.X > 10**(-8)).sum(axis = 0) >= min_cells
-            genes = gene_test.var.index[asarray(bools)[0]]
+            genes = gene_test.var.index[asarray(bools)]
             genes = asarray(genes).reshape((-1,))
             features = set(genes)
             features.update(gene_set)
